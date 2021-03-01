@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react'
 
 import axios from "../api/axios"
 
+import "../styles/Row.css"
+
 const BASE_IMAGE_URL = "https://image.tmdb.org/t/p/original/"
 
-function Row({ title, fetchURL }) {
+function Row({ title, fetchURL, isLargeRow }) {
 
     const [movies, setMovies] = useState([])
 
@@ -28,7 +30,7 @@ function Row({ title, fetchURL }) {
 
             <div className="row__posters">
                 { movies.map(movie => (
-                    <img className="row__poster" src={ `${ BASE_IMAGE_URL }${ movie.poster_path }` } alt={ movie.name } />
+                    <img key={ movie.id } className={`row__poster ${ isLargeRow && "row__posterLarge" }`} src={ `${ BASE_IMAGE_URL }${ isLargeRow ? movie.poster_path : movie.backdrop_path }` } alt={ movie.name } />
                 )) }
             </div>
         </div>
