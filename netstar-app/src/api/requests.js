@@ -7,6 +7,8 @@ const requests = {
     fetchHorrorMovies : `/discover/movie?api_key=${ process.env.REACT_APP_API_KEY }&with_genres=27`,
     fetchRomanceMovies : `/discover/movie?api_key=${ process.env.REACT_APP_API_KEY }&with_genres=10749`,
     fetchDocumentaries : `/discover/movie?api_key=${ process.env.REACT_APP_API_KEY }&with_genres=99`,
+
+    searchMovie : `/search/movie?api_key=${ process.env.REACT_APP_API_KEY }&query=`,
 }
 
 export default requests
