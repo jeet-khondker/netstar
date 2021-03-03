@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from "react-router-dom"
+
+import Search from "./Search"
 
 import "../styles/Nav.css"
-
-import SearchMovie from './SearchMovie'
 
 function Nav() {
 
     const [show, handleShow] = useState(false)
+
+    var scroll_function = () => {}
 
     // Window Scrolling Effect
     useEffect(() => {
@@ -16,17 +19,20 @@ function Nav() {
             } else handleShow(false)
         })
         return () => {
-            window.removeEventListener("scroll")
+            window.removeEventListener("scroll", scroll_function)
         }
     }, [])
 
     return (
         <div className={`nav ${ show && "nav__black" }`}>
-            <img className="nav__logo" src={ process.env.PUBLIC_URL + '/netstar.png' } alt="NetStar" />
+            <Link to="/">
+                <img className="nav__logo" src={ process.env.PUBLIC_URL + '/netstar.png' } alt="NetStar"/>
+            </Link>
 
-            <SearchMovie />
+            <Link to="/searchMovie">
+                <Search />
+            </Link>
         </div>
-        
     )
 }
 
