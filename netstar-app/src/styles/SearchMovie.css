@@ -1,0 +1,96 @@
+.searchMovie__container {
+  display: flex;
+  object-fit: contain;
+  justify-content: center;
+}
+
+.header {
+  color: #000;
+  object-fit: contain;
+  background-color: #fff;
+}
+
+.header__content {
+  padding-top: 150px;
+  height: 200px;
+}
+
+.header__title {
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: 800;
+  padding-bottom: 0.3rem;
+  max-width: 100%;
+  text-shadow: 1px 1px #000;
+  text-align: center;
+}
+
+.movie__name {
+  border: 2px solid #ccc;
+  background: transparent;
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 25px;
+  color: #111;
+  width: 50%;
+}
+
+::placeholder {
+  color: rgb(168, 168, 168);
+}
+
+.searchBtn {
+  background: #111;
+  color: #fff;
+  padding: 10px 20px;
+  border: 1px solid #fff;
+  border-radius: 25px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 250ms;
+}
+
+.searchBtn:hover {
+  color: #fff;
+  background-color: rgba(255, 0, 0, 0.85);
+}
+
+.search__results {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.search__results::-webkit-scrollbar {
+  display: none;
+}
+
+.result {
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
+  background-color: #ccc;
+  width: 20%;
+  min-width: 250px;
+  justify-content: space-around;
+}
+
+.result__image {
+  margin: 0 auto;
+  display: block;
+}
+
+.result__content {
+  margin-top: 10px;
+}
+
+.result__title {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.result__description {
+  margin-top: 10px;
+}
