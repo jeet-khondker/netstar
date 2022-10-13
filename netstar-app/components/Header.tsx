@@ -1,6 +1,7 @@
 // Component : Header
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const Header = () => {
@@ -59,6 +60,17 @@ const Header = () => {
             clipRule="evenodd"
           />
         </svg>
+        &emsp;
+        {/* <p className="hidden lg:inline lg:pr-4">キッズ</p> */}
+        <Link href="/account">
+          <Image
+            src="/netstar-avatar.png"
+            alt=""
+            className="cursor-pointer rounded"
+            width={25}
+            height={25}
+          />
+        </Link>
       </nav>
     </header>
   );
