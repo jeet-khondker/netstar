@@ -6,6 +6,7 @@ import requests from "../api/requests";
 
 import type { PropsTypes } from "../types/movie";
 import type { GetServerSideProps } from "next";
+import Row from "../components/Row";
 
 // Server Side Rendering (SSR)
 
@@ -54,9 +55,9 @@ const Home = ({
   trendingNow,
 }: PropsTypes) => {
   return (
-    <div className="relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh]">
+    <div className="relative h-screen bg-gradient-to-b lg:h-[140vh]">
       <Head>
-        <title>NetStar - 動画Webストア</title>
+        <title>NetStar - 映画Webストア</title>
         <meta name="description" content="NetStar - 動画Webストア" />
         <link rel="icon" href="/netstar-browser.ico" />
       </Head>
@@ -66,11 +67,15 @@ const Home = ({
       <main className="relative pl-4 pb-24 lg:space-y-24 lg:pl-16">
         {/* Banner */}
         <Banner originals={originals} />
-        <section>
-          {/* Row 1 */}
-          {/* Row 2 */}
-          {/* Row 3 */}
-          {/* Row n */}
+        <section className="md:space-y-24">
+          <Row title="今のトレンド" movies={trendingNow} />
+          <Row title="最高評価" movies={topRated} />
+          <Row title="アクションスリラー" movies={actionMovies} />
+          <Row title="コメディ" movies={comedyMovies} />
+          <Row title="ホラー映画" movies={horrorMovies} />
+          <Row title="ロマンス映画" movies={romanceMovies} />
+          <Row title="ドキュメンタリー" movies={documentaries} />
+          {/* My List Component */}
         </section>
       </main>
       {/* Popup Dialog */}
