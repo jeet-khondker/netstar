@@ -28,3 +28,14 @@ export interface PropsTypes {
     romanceMovies: Movie[];
     documentaries: Movie[];
 }
+
+// Type : MovieCategoryType
+export interface MovieCategoryType {
+    title : string;
+    movies : Movie[];
+}
+
+// Type : MovieDetailType
+export interface MovieDetailType {
+    movie : Movie;
+}
