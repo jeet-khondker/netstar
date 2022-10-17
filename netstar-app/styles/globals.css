@@ -5,7 +5,7 @@
 /* <html>, <body>, <header> */
 @layer base {
     body {
-        @apply bg-[#111111] text-white;
+        @apply bg-[#111111] text-white scrollbar scrollbar-track-transparent scrollbar-thumb-red-600;
     }
 
     header {
@@ -24,6 +24,6 @@
     }
 
     .movieLeftRightScrollIcon {
-        @apply w-9 h-9 absolute top-0 bottom-0 left-2 z-40 m-auto cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100;
+        @apply w-9 h-9 absolute top-0 bottom-0 z-40 m-auto cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100;
     }
 }
