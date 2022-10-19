@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import { TOP_BACKGROUND_IMAGE_COVER_URL } from "../constants/movie-constants";
 
-const login = () => {
+const Login = () => {
   return (
     <section className="relative flex h-screen w-screen flex-col md:items-center md:justify-center">
       <Head>
@@ -66,4 +66,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;
