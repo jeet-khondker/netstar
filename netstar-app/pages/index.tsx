@@ -55,7 +55,7 @@ const Home = ({
   trendingNow,
 }: PropsTypes) => {
   return (
-    <div className="relative h-screen bg-gradient-to-b lg:h-[140vh]">
+    <section className="relative h-screen bg-gradient-to-b lg:h-[140vh]">
       <Head>
         <title>NetStar - 映画Webストア</title>
         <meta name="description" content="NetStar - 動画Webストア" />
@@ -79,7 +79,7 @@ const Home = ({
         </section>
       </main>
       {/* Popup Dialog */}
-    </div>
+    </section>
   );
 };
 
