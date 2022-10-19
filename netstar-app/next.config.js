@@ -5,7 +5,7 @@ const nextConfig = {
 
   // Reference URL : https://nextjs.org/docs/messages/next-image-unconfigured-host
   images: {
-    domains: ['image.tmdb.org'],
+    domains: ["assets.nflxext.com", 'image.tmdb.org'],
   },
 }
 
