@@ -26,4 +26,8 @@
     .movieLeftRightScrollIcon {
         @apply w-9 h-9 absolute top-0 bottom-0 z-40 m-auto cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100;
     }
+
+    .input {
+        @apply w-full rounded bg-[#333] px-2 py-6 placeholder-[gray] outline-none focus:bg-[#454545];
+    }
 }
