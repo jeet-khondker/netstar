@@ -2,10 +2,25 @@
 
 import Head from "next/head";
 import Image from "next/image";
+import { useState } from "react";
+
+import { useForm, SubmitHandler } from "react-hook-form";
 
 import { TOP_BACKGROUND_IMAGE_COVER_URL } from "../constants/movie-constants";
 
+import { Inputs } from "../types/movie";
+
 const Login = () => {
+  const [login, setLogin] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inputs>();
+
+  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+
   return (
     <section className="relative flex h-screen w-screen flex-col md:items-center md:justify-center">
       <Head>
@@ -27,22 +42,56 @@ const Login = () => {
         height={27.1}
         className="absolute left-4 top-4 cursor-pointer object-contain md:left-10 md:top-6"
       />
-      <form className="relative m-auto md:m-0 space-y-8 rounded bg-black/75 py-10 px-8 md:mt-0 md:max-w-md md:px-14">
+
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="relative m-auto md:m-0 space-y-8 rounded bg-black/75 py-10 px-8 md:mt-0 md:max-w-md md:px-14"
+      >
         <h1 className="text-center text-4xl font-bold">ログイン</h1>
         <section className="space-y-4">
           <label className="inline-block w-full">
             <input
-              typeof="email"
+              type="email"
               placeholder="Eメールを入力してください"
               className="input"
+              {...register("email", { required: true })}
             />
+            {/* 未入力の場合、エラーメッセージ  */}
+            {errors.email && errors.email.type === "required" && (
+              <p className="p-1 text-[13px] font-light text-red-500">
+                ※　Eメールは必須です。
+              </p>
+            )}
           </label>
           <label className="inline-block w-full">
             <input
-              typeof="password"
+              type="password"
               placeholder="パスワードを入力してください"
               className="input"
+              {...register("password", {
+                required: true,
+                minLength: 4,
+                maxLength: 60,
+              })}
             />
+            {/* 未入力の場合、エラーメッセージ  */}
+            {errors.password && errors.password.type === "required" && (
+              <p className="p-1 text-[13px] font-light text-red-500">
+                ※　パスワードは必須です。
+              </p>
+            )}
+            {/* 入力が４文字以下の場合、エラーメッセージ  */}
+            {errors.password && errors.password.type === "minLength" && (
+              <p className="p-1 text-[13px] font-light text-red-500">
+                ※　パスワードを３文字以上入力してください。
+              </p>
+            )}
+            {/* 入力が６０文字以上の場合、エラーメッセージ  */}
+            {errors.password && errors.password.type === "maxLength" && (
+              <p className="p-1 text-[13px] font-light text-red-500">
+                ※　パスワードを６０文字以内に入力してください。
+              </p>
+            )}
           </label>
         </section>
         <button
