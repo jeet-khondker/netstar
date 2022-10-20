@@ -39,3 +39,9 @@ export interface MovieCategoryType {
 export interface MovieDetailType {
     movie : Movie;
 }
+
+// Type : Form Inputs
+export interface Inputs {
+    email : string;
+    password : string;
+}
