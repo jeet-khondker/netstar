@@ -7,11 +7,14 @@ import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 import { TOP_BACKGROUND_IMAGE_COVER_URL } from "../constants/movie-constants";
+import useAuth from "../hooks/useAuth";
 
-import { Inputs } from "../types/movie";
+import { Inputs } from "../types/user";
 
 const Login = () => {
   const [login, setLogin] = useState(false);
+
+  const { signIn, signUp } = useAuth();
 
   const {
     register,
@@ -19,7 +22,13 @@ const Login = () => {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = async ({ email, password }) => {
+    if (login) {
+      await signIn(email, password);
+    } else {
+      await signUp(email, password);
+    }
+  };
 
   return (
     <section className="relative flex h-screen w-screen flex-col md:items-center md:justify-center">
@@ -97,6 +106,7 @@ const Login = () => {
         <button
           type="submit"
           className="w-full rounded bg-[#e50914] py-3 font-semibold border border-solid border-transparent hover:bg-black hover:text-[#e50914] hover:border-solid hover:border hover:border-[#e50914]"
+          onClick={() => setLogin(true)}
         >
           NetStarへログイン
         </button>
@@ -106,6 +116,7 @@ const Login = () => {
           <button
             type="submit"
             className="text-white rounded px-8 py-3 bg-[#000000] border border-white border-solid hover:bg-white hover:text-black"
+            onClick={() => setLogin(false)}
           >
             今無料で登録
           </button>
