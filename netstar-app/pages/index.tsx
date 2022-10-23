@@ -7,6 +7,7 @@ import requests from "../api/requests";
 import type { PropsTypes } from "../types/movie";
 import type { GetServerSideProps } from "next";
 import Row from "../components/Row";
+import useAuth from "../hooks/useAuth";
 
 // Server Side Rendering (SSR)
 
@@ -54,6 +55,10 @@ const Home = ({
   topRated,
   trendingNow,
 }: PropsTypes) => {
+  const { loading } = useAuth();
+
+  if (loading) return null;
+
   return (
     <section className="relative h-screen bg-gradient-to-b lg:h-[140vh]">
       <Head>
