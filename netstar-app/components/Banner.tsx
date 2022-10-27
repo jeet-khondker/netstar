@@ -3,7 +3,11 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
+import { useRecoilState } from "recoil";
+
 import type { Movie } from "../types/movie";
+
+import { modalState, movieState } from "../atoms/modalAtom";
 
 import { IMAGE_BASE_URL } from "../constants/movie-constants";
 
@@ -13,6 +17,8 @@ interface originalsType {
 
 const Banner = ({ originals }: originalsType) => {
   const [movie, setMovie] = useState<Movie | null>(null);
+  const [currentMovie, setCurrentMovie] = useRecoilState(movieState);
+  const [showModal, setShowModal] = useRecoilState(modalState);
 
   useEffect(() => {
     setMovie(originals[Math.floor(Math.random() * originals.length)]);
@@ -52,7 +58,13 @@ const Banner = ({ originals }: originalsType) => {
           </svg>
           プレー
         </button>
-        <button className="bannerButton bg-[gray]/70">
+        <button
+          className="bannerButton bg-[gray]/70"
+          onClick={() => {
+            setCurrentMovie(movie);
+            setShowModal(true);
+          }}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
