@@ -9,6 +9,10 @@ import type { GetServerSideProps } from "next";
 import Row from "../components/Row";
 import useAuth from "../hooks/useAuth";
 
+import { useRecoilValue } from "recoil";
+import { modalState } from "../atoms/modalAtom";
+import Modal from "../components/Modal";
+
 // Server Side Rendering (SSR)
 
 export const getServerSideProps: GetServerSideProps = async () => {
@@ -56,6 +60,7 @@ const Home = ({
   trendingNow,
 }: PropsTypes) => {
   const { loading } = useAuth();
+  const showModal = useRecoilValue(modalState);
 
   if (loading) return null;
 
@@ -84,6 +89,7 @@ const Home = ({
         </section>
       </main>
       {/* Popup Dialog */}
+      {showModal && <Modal />}
     </section>
   );
 };
