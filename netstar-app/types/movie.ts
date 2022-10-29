@@ -39,3 +39,20 @@ export interface MovieCategoryType {
 export interface MovieDetailType {
     movie : Movie;
 }
+
+// Type : Element
+export interface Element {
+    type :
+      | 'Bloopers'
+      | 'Featurette'
+      | 'Behind the Scenes'
+      | 'Clip'
+      | 'Trailer'
+      | 'Teaser'
+}
+
+// Type : Genre
+export interface Genre {
+    id : number;
+    name : string;
+}
