@@ -42,7 +42,7 @@ const Banner = ({ originals }: originalsType) => {
       </p>
       <section className="flex space-x-3">
         <button
-          className="bannerButton bg-[gray]/70"
+          className="bannerButton bg-white text-black"
           onClick={() => {
             setCurrentMovie(movie);
             setShowModal(true);
