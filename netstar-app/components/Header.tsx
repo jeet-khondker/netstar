@@ -42,7 +42,7 @@ const Header = () => {
         <ul className="hidden space-x-4 md:flex">
           <li className="headerLink">ホーム</li>
           <li className="headerLink">テレビショー</li>
-          <li className="headerLink">動画</li>
+          <li className="headerLink">映画</li>
           <li className="headerLink">新しい＆人気</li>
           <li className="headerLink">私のリスト</li>
         </ul>
