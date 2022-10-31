@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import MuiModal from "@mui/material/modal";
+import MuiModal from "@mui/material/Modal";
 
 import { useRecoilState } from "recoil";
 import { modalState, movieState } from "../atoms/modalAtom";
