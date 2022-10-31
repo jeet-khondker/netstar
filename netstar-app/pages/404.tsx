@@ -1,7 +1,7 @@
 // Page Not Found
 
 const FourZeroFour = () => {
-  return <div>404</div>;
+  return <section>Page Not Found</section>;
 };
 
 export default FourZeroFour;
