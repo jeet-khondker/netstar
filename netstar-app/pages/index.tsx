@@ -10,7 +10,7 @@ import Row from "../components/Row";
 import useAuth from "../hooks/useAuth";
 
 import { useRecoilValue } from "recoil";
-import { modalState } from "../atoms/modalAtom";
+import { modalState, movieState } from "../atoms/modalAtom";
 import Modal from "../components/Modal";
 
 // Server Side Rendering (SSR)
@@ -61,13 +61,16 @@ const Home = ({
 }: PropsTypes) => {
   const { loading } = useAuth();
   const showModal = useRecoilValue(modalState);
+  const movie = useRecoilValue(movieState);
 
   if (loading) return null;
 
   return (
     <section className="relative h-screen bg-gradient-to-b lg:h-[140vh]">
       <Head>
-        <title>NetStar - 映画Webストア</title>
+        <title>
+          {movie?.title || movie?.original_name || "NetStar"} - 映画Webストア
+        </title>
         <meta name="description" content="NetStar - 動画Webストア" />
         <link rel="icon" href="/netstar-browser.ico" />
       </Head>
@@ -85,7 +88,6 @@ const Home = ({
           <Row title="ホラー映画" movies={horrorMovies} />
           <Row title="ロマンス映画" movies={romanceMovies} />
           <Row title="ドキュメンタリー" movies={documentaries} />
-          {/* My List Component */}
         </section>
       </main>
       {/* Popup Dialog */}
