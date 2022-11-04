@@ -1,34 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 開発用のドキュメント
 
-## Getting Started
+NetStar アプリのソースと開発関係のドキュメントです。
 
-First, run the development server:
+# 開発ツール
 
-```bash
-npm run dev
-# or
-yarn dev
+**ツール**：HTML、CSS、TailwindCSS、JavaScript、TypeScript、ReactJS、NextJS
+
+**映画取得の API**：TMDB API (https://www.themoviedb.org/)
+
+**ユーザー認証用**：Firebase
+
+**デプロイ**：Vercel
+
+# ローカル環境で使用手順
+
+① レポジトリーのクローン
+
+```sh
+$ git clone https://github.com/jeet-khondker/netstar.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+② ソースファイルへアクセス
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```sh
+$ cd netstar-app
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+③ 開発サーバーの実行
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```sh
+$ npm run dev
+# or
+$ yarn dev
+```
 
-## Learn More
+④ ブラウザで [http://localhost:3000](http://localhost:3000) を開いて結果を確認してください。
 
-To learn more about Next.js, take a look at the following resources:
+# 本番環境で実行
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+https://netstar.vercel.app/
